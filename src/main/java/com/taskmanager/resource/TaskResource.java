@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -33,7 +34,7 @@ public class TaskResource {
 	}
 	
 	@PostMapping
-	public ResponseEntity<Task> createTask(@RequestBody Task task, HttpServletResponse response) {
+	public ResponseEntity<Task> createTask(@Valid @RequestBody Task task, HttpServletResponse response) {
 		Task newTask = this.taskRepository.save(task);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri()
 											 .path("/id")
