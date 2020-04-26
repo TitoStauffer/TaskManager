@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="usermod")
@@ -14,12 +15,16 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@NotNull
 	private String name;
 	
+	@NotNull
 	private char sex;
 	
+	@NotNull
 	private String email;
 	
+	@NotNull
 	private String password;
 
 	/**
